@@ -8,24 +8,74 @@
 <meta content="" property="og:image">
 <meta property="og:url" content="" >
 <link rel="icon" href="/favicon.ico" sizes="32x32">
-    <title>Curious Facts</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/estilos.css">
+<link href="https://fonts.googleapis.com/css2?family=Jaini+Purva&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Curious Facts</title>
 </head>
 <body>
-<header></header>
-<main>
-    <button id="showFavBtn">Mostrar Favoritos</button>
-<button id="backBtn" style="display:none;">Volver</button>
+<header>
+<img src="assets/images/logo.png" alt="Logo Curious Facts">
+<h1>Curious Facts</h1>
+</header>
+<main id="mainView">
+  
+  <h2>Generador de datos curiosos</h2>
+  <h3>Dato curioso del día</h3>
 
-<ul id="favList" style="display:none;"></ul>
-<button id="newFactBtn">Nuevo hecho</button>
-<div id="factContainer"></div>
-<button id="saveFavBtn">Guardar en favoritos</button>
-<ul id="favList"></ul>
+  <div id="mainCard" class="mycard floating p-4 rounded-4 shadow">
+    <button id="saveFavBtn">
+      <img id="heart" src="assets/images/corazon.png" alt="Guardar">
+    </button>
+    <div id="factContainer"></div>
+  </div>
+
+  <div class="button-field">
+    <button id="newFactBtn">Nueva curiosidad</button>
+    <button id="showFavBtn">Lista de favoritos</button>
+  </div>
+</main>
+
+<main id="favView" style="display:none;">
+  <div class="flechita-arriba">
+        <a href="#" id="upper-btn" class="upper-btn"
+          ><img src="/assets/images/up-arrow.png" alt="volver arriba"
+        /></a>
+      </div>
+  <h2>Lista de datos curiosos favoritos</h2>
+  <button id="backBtn">Volver</button>
+  <div id="favList"></div>
 </main>
 <footer>
+<div class="column">
+ <p>La Ciba</p>
+ <p>666 66 66 66</p>
+ <p>fake@mail.com</p>   
+</div>
 
+<div class="column">
+<p>Terms & Condicitions</p>
+<p>Privacy Policy</p>
+<p>Curios-Facts®</p>    
+</div>
+<div class="net">
+          <div class="circle-layer">
+            <i class="fa-brands fa-facebook-f"></i>
+          </div>
+          <div class="circle-layer"><i class="fa-brands fa-twitter"></i></div>
+          <div class="circle-layer">
+            <i class="fa-brands fa-pinterest-p"></i>
+          </div>
+          <div class="circle-layer"><i class="fa-brands fa-instagram"></i></div>
+        </div>    
 </footer>    
     
 </body>
 <script src="js/api.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </html>
