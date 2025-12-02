@@ -10,7 +10,6 @@ body{
     grid-template-rows: auto 1fr auto;
 }
 
-
 h1{
   font-family: "Jaini Purva", system-ui;
   font-weight: 400;
@@ -26,23 +25,23 @@ h2{
 }
 
 h3{
-    font-family: "Just Another Hand", cursive;
+  font-family: "Just Another Hand", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 36px;
 }
 
 main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    flex-direction: column;
-    margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 footer{
-    font-family: "Jaro", sans-serif;
+  font-family: "Jaro", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;

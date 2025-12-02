@@ -1,7 +1,31 @@
-import { expect, test } from "vitest";
-import { getRandomFact } from "./api.js";
+import { describe, it, expect, vi } from "vitest";
+import { getRandomFact, getToday } from "../js/api.js";
 
-test("la API devuelve un hecho curioso", async () => {
-  const fact = await getRandomFact();
-  expect(typeof fact).toBe("string");
+vi.stubGlobal("fetch", vi.fn((url) => {
+  if (url.includes("today")) {
+    return Promise.resolve({
+      json: () => Promise.resolve({ text: "Dato del día" })
+    });
+  }
+
+  if (url.includes("random")) {
+    return Promise.resolve({
+      json: () => Promise.resolve({ text: "Dato aleatorio" })
+    });
+  }
+}));
+
+describe("getToday", () => {
+  it("devuelve 'Dato del día'", async () => {
+    const text = await getToday();
+    expect(text).toBe("Dato del día");
+  });
 });
+
+describe("getRandomFact", () => {
+  it("devuelve 'Dato aleatorio'", async () => {
+    const text = await getRandomFact();
+    expect(text).toBe("Dato aleatorio");
+  });
+});
+

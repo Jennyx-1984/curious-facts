@@ -1,7 +1,6 @@
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 let lastFact = "";
 
-// ---------- ELEMENTOS ----------
 const mainView = document.getElementById("mainView");
 const favView = document.getElementById("favView");
 const mainCard = document.getElementById("mainCard");
@@ -13,48 +12,60 @@ const showFavBtn = document.getElementById("showFavBtn");
 const backBtn = document.getElementById("backBtn");
 const favList = document.getElementById("favList");
 
-// ---------- FUNCIONES API ----------
-async function getRandomFact() {
+export async function getRandomFact() {
   const h3=document.querySelector("h3");
-  h3.style.visibility="hidden";
+  if (h3) h3.style.visibility = "hidden";
   const res = await fetch('https://uselessfacts.jsph.pl/api/v2/facts/random');
   const data = await res.json();
   return data.text;
 }
 
-async function initToday() {
+export async function getToday() {
   const res = await fetch('https://uselessfacts.jsph.pl/api/v2/facts/today');
   const data = await res.json();
   return data.text;
 }
 
-// ---------- RENDER CARD ----------
-function renderCard(factText) {
+window.addEventListener("DOMContentLoaded", async () => {
+  const todayFact = await getToday();
+  renderCard(todayFact);
+  updateShowFavBtnVisibility();
+});
+
+export function renderCard(factText) {
   lastFact = factText;
-  factContainer.textContent = factText;
-
-  heartImg.src = favorites.includes(factText)
-    ? "assets/images/corazon-full.png"
-    : "assets/images/corazon.png";
-
-  saveFavBtn.onclick = () => {
-    if (!favorites.includes(factText)) {
-      favorites.push(factText);
-    } else {
-      favorites = favorites.filter(f => f !== factText);
-    }
-    localStorage.setItem("favorites", JSON.stringify(favorites));
+  if (factContainer) {
+    factContainer.textContent = factText;
+  }
+  if (heartImg) {
     heartImg.src = favorites.includes(factText)
       ? "assets/images/corazon-full.png"
       : "assets/images/corazon.png";
-    renderFavorites();
-    updateShowFavBtnVisibility();
-  };
+  }
+  if (saveFavBtn) {
+    saveFavBtn.onclick = () => {
+      if (!favorites.includes(factText)) {
+        favorites.push(factText);
+      } else {
+        favorites = favorites.filter(f => f !== factText);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites));
 
+      if (heartImg) {
+        heartImg.src = favorites.includes(factText)
+          ? "assets/images/corazon-full.png"
+          : "assets/images/corazon.png";
+      }
+
+      renderFavorites();
+      updateShowFavBtnVisibility();
+    };
+  }
   updateShowFavBtnVisibility();
 }
+window.renderCard = renderCard;
 
-// ---------- FAVORITOS ----------
+
 function renderFavorites() {
   favList.innerHTML = "";
   if (favorites.length === 0) {
@@ -77,7 +88,6 @@ function renderFavorites() {
     const heart = document.createElement("img");
     heart.src = "assets/images/corazon-full.png";
     heart.alt = "Eliminar favorito";
-    //favBtn.classList.add("unsavedFavBtn");
     heart.style.width = "20px";
     heart.style.height = "20px";
     favBtn.appendChild(heart);
@@ -87,7 +97,6 @@ function renderFavorites() {
       localStorage.setItem("favorites", JSON.stringify(favorites));
       renderFavorites();
 
-      // actualizar corazón principal si coincide
       if (fact === lastFact) {
         heartImg.src = "assets/images/corazon.png";
       }
@@ -102,40 +111,40 @@ function renderFavorites() {
 }
 
 function updateShowFavBtnVisibility() {
+  if (!showFavBtn) return;
   showFavBtn.style.display = favorites.length ? "inline-block" : "none";
 }
 
-// ---------- EVENTOS ----------
-newFactBtn.addEventListener("click", async () => {
+
+if (newFactBtn) {
+newFactBtn?.addEventListener("click", async () => {
   const fact = await getRandomFact();
   renderCard(fact);
 });
-
-showFavBtn.addEventListener("click", () => {
-  mainView.style.display = "none";
-  favView.style.display = "block";
-  renderFavorites();
+}
+showFavBtn?.addEventListener("click", () => {
+  if (mainView && favView) {
+    mainView.style.display = "none";
+    favView.style.display = "block";
+    renderFavorites();
+  }
 });
-
-backBtn.addEventListener("click", () => {
-  favView.style.display = "none";
-  mainView.style.display = "block";
+backBtn?.addEventListener("click", () => {
+  if (favView && mainView) {
+    favView.style.display = "none";
+    mainView.style.display = "block";
+  }
 });
-
-// ---------- INICIALIZACIÓN ----------
-window.addEventListener("DOMContentLoaded", async () => {
-  const todayFact = await initToday();
-  renderCard(todayFact);
-  updateShowFavBtnVisibility();
-});
-
 
 const upperBtn = document.querySelector('.upper-btn');
-//para ocultar el boton de la flechita arriba
+
 window.addEventListener('scroll', () => {
+  if (!upperBtn) return;
   if (window.scrollY > 200) { 
     upperBtn.classList.add('visible');
   } else {
     upperBtn.classList.remove('visible');
   }
 });
+
+

@@ -1,0 +1,28 @@
+{
+  "name": "curious-facts",
+  "version": "1.0.0",
+  "description": "Sitio web para generar datos curiosos a través de una API",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jennyx-1984/curious-facts.git"
+  },
+  "keywords": [],
+  "author": "Jennifer Cros",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Jennyx-1984/curious-facts/issues"
+  },
+  "homepage": "https://github.com/Jennyx-1984/curious-facts#readme",
+  "devDependencies": {
+    "jsdom": "^22.1.0",
+    "vitest": "^4.0.14"
+  }
+}

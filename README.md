@@ -21,6 +21,9 @@ Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive
 ![Vista favoritos](assets/screenshots/fav-view.jpg)  
 
 💻 [Prueba la web en vivo](https://jennyx-1984.github.io/curious-facts/)
+🔀 [Visita mi flowchart](https://drive.google.com/file/d/1mAvabYfHCooxf4hUO_VgJgX0vpKm_O5-/view?usp=sharing)
+🎨 [Échale un ojo al diseño](https://www.figma.com/proto/PbiLWP86m53yGcMoUc2Mii/curios-facts?node-id=0-1&t=i0dRIJ5URI65JZK0-1)
+📂 [Visita el repositorio de Github](https://github.com/Jennyx-1984/curious-facts)
 
 ---
 
@@ -29,9 +32,10 @@ Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive
 - Generador de datos curiosos aleatorios
 - Guardar favoritos y consultar lista
 - Botón de “me gusta” con corazón
-- Diseño responsive con Bootstrap
+- Diseño responsive
 - Scroll automático para textos largos
 - Interfaz moderna y sencilla
+- Test Unitario 
 
 ---
 
@@ -41,12 +45,16 @@ Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive
 - Bootstrap 5.3
 - Google Fonts
 - Font Awesome
+- Node.js
+- Vitest
+
 
 ---
 
 ## ⚙️ Instalación
 
-1. Clona el repositorio:
+1. Clona el repositorio o haz un fork:
+2. Disfruta del proyecto
 
 ```bash
 git clone https://github.com/Jennyx-1984/curious-facts.git
