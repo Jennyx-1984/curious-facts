@@ -25,7 +25,7 @@ Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive
 🎨 [Échale un ojo al diseño](https://www.figma.com/proto/PbiLWP86m53yGcMoUc2Mii/curios-facts?node-id=0-1&t=i0dRIJ5URI65JZK0-1)
 📂 [Visita el repositorio de Github](https://github.com/Jennyx-1984/curious-facts)
 📋 [Mi trayectoría durante el proyecto](https://trello.com/invite/b/692d64fa97a79212db231306/ATTI840f9d29ea9b340414f4e94468ff7d5a19FDFF8D/curios-facts)
-🖌️ [Mi presentación del proyecto](Para incluir todavia)
+🖌️ [Mi presentación del proyecto](https://www.canva.com/design/DAG6c40wyV0/UMP3V6JRWvoPi2SCuy_yWw/edit?utm_content=DAG6c40wyV0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 ---
 
 ## 🚀 Características
@@ -38,6 +38,7 @@ Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive
 - Interfaz moderna y sencilla.
 - Test Unitario.
 - Cambio de idioma Inglés/Alemán. 
+- SEO añadido
 
 ---
 
