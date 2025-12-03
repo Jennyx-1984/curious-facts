@@ -65,6 +65,11 @@ h3{
     border-radius: 20px;
     width: 173px;
     height: 45px;
+    transition: transform 0.2s ease;
+}
+
+#showFavBtn:hover{
+    transform: scale(1.05);
 }
 
 #saveFavBtn,#unsavedFavBtn {
@@ -127,6 +132,12 @@ span{
     text-align: center;
     padding: 4px;
     gap: 5px;
+    transition: transform 0.2s ease;
+}
+
+#newFactBtn:hover{
+    transform: scale(1.05);
+    background-color: #82e075;
 }
 
 #backBtn{
@@ -136,6 +147,9 @@ span{
     height:52px;
     font-family: "Jaini Purva", system-ui;
     font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    transition: transform 0.2s ease;
 }
 
 #favView{
@@ -143,9 +157,13 @@ span{
     margin-top: 50px;
 }
 
-#backBtn{
-    margin-top: 30px;
-    margin-bottom: 50px;
+#backBtn:hover{
+    transform: scale(1.05);
+}
+
+.not-found{
+    font-size: 48px;
+    width: 75%;
 }
 
 footer{
@@ -218,6 +236,10 @@ footer{
     opacity: 0;
     animation: fadeIn 2s forwards;
 }
+
+
+.text-shadow-sm { text-shadow: 0 .125rem .25rem #fa2525be; }
+.text-shadow    { text-shadow: 0 .5rem 1rem #f90909ea; }
 @keyframes fadeIn {
     to {
     opacity: 1;

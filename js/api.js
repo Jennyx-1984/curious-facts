@@ -76,7 +76,7 @@ function renderFavorites() {
 
   favList.innerHTML = "";
   if (favorites.length === 0) {
-    favList.innerHTML = "<p>No tienes favoritos guardados.</p>";
+    favList.innerHTML = "<img class='not-found' src='../assets/images/nofacts.png' alt='facts not found'/>";
     return;
   }
 
@@ -163,4 +163,11 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 
-
+const upperBtn = document.querySelector('.upper-btn');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) { 
+    upperBtn.classList.add('visible');
+  } else {
+    upperBtn.classList.remove('visible');
+  }
+});
