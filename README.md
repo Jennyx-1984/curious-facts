@@ -8,8 +8,8 @@
 
 ## 📖 Descripción
 
-**Curious Facts** es un generador web de datos curiosos que muestra un dato aleatorio cada día.  
-Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive gracias a Bootstrap.  
+**Curious Facts** es un generador web de datos curiosos que muestra un dato aleatorio cada día. Y después puede seguir generando otros datos aleatorios. 
+Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive.  
 
 ¡Ideal para descubrir curiosidades y compartirlas!
 
@@ -29,14 +29,15 @@ Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive
 ---
 
 ## 🚀 Características
-
-- Generador de datos curiosos aleatorios
-- Guardar favoritos y consultar lista
-- Botón de “me gusta” con corazón
-- Diseño responsive
-- Scroll automático para textos largos
-- Interfaz moderna y sencilla
-- Test Unitario 
+- Genera dato diario cada vez que carga la web sólo una única vez.
+- Generador de datos curiosos aleatorios.
+- Guardar favoritos y consultar lista.
+- Botón de “me gusta” con corazón.
+- Diseño responsive.
+- Scroll automático para textos largos.
+- Interfaz moderna y sencilla.
+- Test Unitario.
+- Cambio de idioma Inglés/Alemán. 
 
 ---
 
