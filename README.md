@@ -24,7 +24,8 @@ Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive
 🔀 [Visita mi flowchart](https://drive.google.com/file/d/1mAvabYfHCooxf4hUO_VgJgX0vpKm_O5-/view?usp=sharing)
 🎨 [Échale un ojo al diseño](https://www.figma.com/proto/PbiLWP86m53yGcMoUc2Mii/curios-facts?node-id=0-1&t=i0dRIJ5URI65JZK0-1)
 📂 [Visita el repositorio de Github](https://github.com/Jennyx-1984/curious-facts)
-
+📋 [Mi trayectoría durante el proyecto](https://trello.com/invite/b/692d64fa97a79212db231306/ATTI840f9d29ea9b340414f4e94468ff7d5a19FDFF8D/curios-facts)
+🖌️ [Mi presentación del proyecto](Para incluir todavia)
 ---
 
 ## 🚀 Características

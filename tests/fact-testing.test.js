@@ -1,5 +1,9 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi,beforeEach } from "vitest";
 import { getRandomFact, getToday } from "../js/api.js";
+
+beforeEach(() => {
+  document.body.innerHTML = `<button id="lang-switch"></button>`;
+});
 
 vi.stubGlobal("fetch", vi.fn((url) => {
   if (url.includes("today")) {
