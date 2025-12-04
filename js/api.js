@@ -14,6 +14,9 @@ const newFactBtn = document.getElementById("newFactBtn");
 const showFavBtn = document.getElementById("showFavBtn");
 const backBtn = document.getElementById("backBtn");
 const favList = document.getElementById("favList");
+const subTitle=document.querySelector("h2");
+const miniTitle=document.querySelector("h3");
+const subTitFav=document.getElementById("subtitle-favorites");
 
 export async function getRandomFact() {
   const h3=document.querySelector("h3");
@@ -126,7 +129,14 @@ window.addEventListener("DOMContentLoaded", async () => {
   if (langSwitch) {
     langSwitch.addEventListener("click", async () => {
       currentLang = currentLang === "en" ? "de" : "en";
-      langSwitch.textContent = currentLang === "en" ? "DE" : "EN";
+      langSwitch.textContent = currentLang === "en" ? "🇩🇪" : "🇬🇧";
+      subTitle.textContent = currentLang === "de" ? "Generator für Wissenswerte Fakten" : "Fun Facts Generator";
+      miniTitle.textContent = currentLang === "de" ? "Fun Fact des Tages" : "Fun Fact of the Day";
+      newFactBtn.textContent = currentLang === "de" ? "Neuer Fakt" : "New Fact";
+      showFavBtn.textContent = currentLang === "de" ? "Favoritenliste" : "Favorites List";
+      backBtn.textContent = currentLang === "de" ? "Zurück" : "Return";
+      subTitFav.textContent  = currentLang === "de" ? "Favoritenliste" : "Favorites List";
+
 
       const fact = lastFactIsToday ? await getToday() : await getRandomFact();
       lastFactIsToday = lastFactIsToday ? true : false;
