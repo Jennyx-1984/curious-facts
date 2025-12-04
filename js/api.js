@@ -16,41 +16,52 @@ const miniTitle=document.querySelector("h3");
 const subTitFav=document.getElementById("subtitle-favorites");
 
 export async function getRandomFact() {
-  const h3=document.querySelector("h3");
+  const h3 = document.querySelector("h3");
   if (h3) h3.style.visibility = "hidden";
   const urlBase = "https://uselessfacts.jsph.pl/api/v2/facts/random";
   const url = currentLang === "de" ? `${urlBase}?language=de` : urlBase;
-
-  const res = await fetch(url);
-  const data = await res.json();
-  return data.text;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`Error en la petición: ${res.status} ${res.statusText}`);
+    }
+    const data = await res.json();
+    return data?.text ?? "No se pudo obtener un dato curioso en este momento.";
+  } catch (error) {
+    console.error("Error obteniendo el dato aleatorio:", error);
+    return "No se pudo obtener un dato curioso en este momento.";
+  }
 }
+
 
 export async function getToday() {
   const urlBase = "https://uselessfacts.jsph.pl/api/v2/facts/today";
   const url = currentLang === "de" ? `${urlBase}?language=de` : urlBase;
-
-  const res = await fetch(url);
-  const data = await res.json();
-  return data.text;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`Error en la petición: ${res.status} ${res.statusText}`);
+    }
+    const data = await res.json();
+     return data?.text ?? "No se pudo obtener el dato del día.";
+  } catch (error) {
+    console.error("Error obteniendo el dato de hoy:", error);
+    return "No se pudo obtener el dato del día.";
+  }
 }
+
 
 export function renderCard(factText) {
   lastFact = factText;
-
-  
   const factContainer = document.getElementById("factContainer");
   const saveFavBtn = document.getElementById("saveFavBtn");
   const heartImg = document.getElementById("heart");
-
   if (factContainer) factContainer.textContent = factText;
-
   if (heartImg) {
     heartImg.src = favorites.includes(factText)
       ? "assets/images/corazon-full.png"
       : "assets/images/corazon.png";
   }
-
   if (saveFavBtn) {
     saveFavBtn.onclick = () => {
       if (!favorites.includes(factText)) {
@@ -125,13 +136,11 @@ window.addEventListener("DOMContentLoaded", async () => {
       showFavBtn.textContent = currentLang === "de" ? "Favoritenliste" : "Favorites List";
       backBtn.textContent = currentLang === "de" ? "Zurück" : "Return";
       subTitFav.textContent  = currentLang === "de" ? "Favoritenliste" : "Favorites List";
-
       const fact = lastFactIsToday ? await getToday() : await getRandomFact();
       lastFactIsToday = lastFactIsToday ? true : false;
       renderCard(fact);
     });
   }
-
   const todayFact = await getToday();
   renderCard(todayFact);
   if (newFactBtn) {
