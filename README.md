@@ -57,7 +57,12 @@ Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive
 ## ⚙️ Instalación
 
 1. Clona el repositorio o haz un fork:
-2. Disfruta del proyecto
+2. Para la instalación de Node.js descargalo aqui [Node.js](https://nodejs.org/en) , si quieres verificar si lo tienes instalado en vsc haz cntl + ñ y escribe node -v
+3. Para la instalación de npm haz cntrl + ñ, se abrirá tu terminal y escribe este comando npm install, para comprobar si lo tienes instalado escribe npm -v
+4. Instala vitest para realizar el testing con el comando en tu consola npm install -D vitest
+5. En tu archivo package.json, en tu propiedad type sustituye el commonjs por module
+6. Para realizar un testing, escribe en tu consola npm test
+7. Disfruta del proyecto
 
 ```bash
 git clone https://github.com/Jennyx-1984/curious-facts.git
