@@ -39,6 +39,10 @@ Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive
 - Test Unitario.
 - Cambio de idioma Inglés/Alemán. 
 - SEO añadido
+- Autoscrolleo en galería para listas largas.
+- Mobile first
+- Single Page Application
+- Uso de Bootstrap para animaciones
 
 ---
 
