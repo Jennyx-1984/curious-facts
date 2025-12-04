@@ -6,9 +6,6 @@ export let lastFactIsToday = true;
 
 const mainView = document.getElementById("mainView");
 const favView = document.getElementById("favView");
-const mainCard = document.getElementById("mainCard");
-const factContainer = document.getElementById("factContainer");
-const saveFavBtn = document.getElementById("saveFavBtn");
 const heartImg = document.getElementById("heart");
 const newFactBtn = document.getElementById("newFactBtn");
 const showFavBtn = document.getElementById("showFavBtn");
@@ -41,6 +38,11 @@ export async function getToday() {
 export function renderCard(factText) {
   lastFact = factText;
 
+  
+  const factContainer = document.getElementById("factContainer");
+  const saveFavBtn = document.getElementById("saveFavBtn");
+  const heartImg = document.getElementById("heart");
+
   if (factContainer) factContainer.textContent = factText;
 
   if (heartImg) {
@@ -54,7 +56,8 @@ export function renderCard(factText) {
       if (!favorites.includes(factText)) {
         favorites.push(factText);
       } else {
-        favorites = favorites.filter(f => f !== factText);
+        const index = favorites.indexOf(factText);
+        if (index > -1) favorites.splice(index, 1);
       }
       localStorage.setItem("favorites", JSON.stringify(favorites));
 
@@ -63,56 +66,42 @@ export function renderCard(factText) {
           ? "assets/images/corazon-full.png"
           : "assets/images/corazon.png";
       }
-
-      renderFavorites();
       updateShowFavBtnVisibility();
     };
   }
-
   updateShowFavBtnVisibility();
 }
 
 window.renderCard = renderCard;
-
-function renderFavorites() {
+export function renderFavorites() {
   if (!favList) return;
-
   favList.innerHTML = "";
   if (favorites.length === 0) {
     favList.innerHTML = "<img class='not-found' src='../assets/images/nofacts.png' alt='facts not found'/>";
     return;
   }
-
   favorites.forEach(fact => {
     const card = document.createElement("div");
     card.classList.add("mycard", "floating", "rounded-4", "shadow");
-
     const text = document.createElement("span");
     text.textContent = fact;
-
     const favBtn = document.createElement("button");
     favBtn.id = "unsavedFavBtn";
-
     const heart = document.createElement("img");
     heart.src = "assets/images/corazon-full.png";
     heart.alt = "Eliminar favorito";
     heart.style.width = "20px";
     heart.style.height = "20px";
-
     favBtn.appendChild(heart);
-
     favBtn.onclick = () => {
       favorites = favorites.filter(f => f !== fact);
       localStorage.setItem("favorites", JSON.stringify(favorites));
       renderFavorites();
-
       if (fact === lastFact && heartImg) {
         heartImg.src = "assets/images/corazon.png";
       }
-
       updateShowFavBtnVisibility();
     };
-
     card.appendChild(favBtn);
     card.appendChild(text);
     favList.appendChild(card);
@@ -136,7 +125,6 @@ window.addEventListener("DOMContentLoaded", async () => {
       showFavBtn.textContent = currentLang === "de" ? "Favoritenliste" : "Favorites List";
       backBtn.textContent = currentLang === "de" ? "Zurück" : "Return";
       subTitFav.textContent  = currentLang === "de" ? "Favoritenliste" : "Favorites List";
-
 
       const fact = lastFactIsToday ? await getToday() : await getRandomFact();
       lastFactIsToday = lastFactIsToday ? true : false;
