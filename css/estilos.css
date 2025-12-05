@@ -1,4 +1,3 @@
-/*PRIMERO PARA DISEÑO DE MOVIL*/
 header{
     background-color: #ABAAE8;
     width: 100%;
@@ -256,8 +255,6 @@ footer{
     100% { transform: translateY(0); }
 }
 
-/*AQUI QUERYS PARA DESKTOP Y TABLET*/
-/*DESKTOP*/
 @media (min-width:1020px){
 main{
     position: relative;
@@ -360,7 +357,6 @@ footer{
 }
 }
 
-/*PARA TABLET*/
 @media (min-width: 768px) and (max-width: 1019px){
 main{
     position: relative;
