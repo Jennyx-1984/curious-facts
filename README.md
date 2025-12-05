@@ -13,6 +13,9 @@ Incluye funcionalidad para guardar favoritos y una interfaz moderna y responsive
 
 ¡Ideal para descubrir curiosidades y compartirlas!
 
+Autora: Jennifer Cros
+Para: FemCoders Factoria F5
+
 ---
 
 ## 🎬 Demo
